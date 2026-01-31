@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> TANVIR AHMED DIPTO | Founder & CEO - ACS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --neon-blue: #00f3ff;
+      --neon-pink: #ff00ff;
+      --matrix-green: #00ff41;
+      --dark-bg: #0a0a0f;
+      --glow-blue: rgba(0, 243, 255, 0.7);
+      --glow-pink: rgba(255, 0, 255, 0.7);
+      --tiktok-color: #69C9D0;
+      --warning: #ff9900;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* স্ক্রোল ফিক্স শুরু */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    
+    body {
+      background-color: var(--dark-bg);
+      color: white;
+      font-family: 'Rajdhani', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* উপরে থেকে শুরু */
+      position: relative;
+      padding: 20px 0;
+    }
+    /* স্ক্রোল ফিক্স শেষ */
+    
+    .cyber-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 243, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(0, 255, 65, 0.05) 0%, transparent 50%);
+    }
+    
+    .digital-rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    
+    .cyber-card {
+      width: 100%;
+      max-width: 500px;
+      background: rgba(10, 10, 15, 0.95);
+      border: 1px solid var(--neon-blue);
+      border-radius: 20px;
+      padding: 25px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 
+        0 0 40px var(--glow-blue),
+        inset 0 0 30px rgba(0, 243, 255, 0.15);
+      backdrop-filter: blur(15px);
+      overflow: hidden;
+      margin: 20px auto;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .cyber-card::before,
+    .cyber-card::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+    }
+    
+    .cyber-card::before {
+      top: 12px;
+      left: 12px;
+      border-top: 2px solid var(--neon-blue);
+      border-left: 2px solid var(--neon-blue);
+    }
+    
+    .cyber-card::after {
+      bottom: 12px;
+      right: 12px;
+      border-bottom: 2px solid var(--neon-pink);
+      border-right: 2px solid var(--neon-pink);
+    }
+    
+    /* ভাষা সুইচার */
+    .language-switcher {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      gap: 6px;
+      z-index: 100;
+    }
+    
+    .lang-btn {
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--neon-blue);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.3s;
+      font-weight: bold;
+    }
+    
+    .lang-btn.active {
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+      color: black;
+      box-shadow: 0 0 8px var(--glow-blue);
+    }
+    
+    .lang-btn:hover {
+      transform: scale(1.08);
+    }
+    
+    .profile-header {
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .logo-container {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+    
+    .profile-logo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid transparent;
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink), var(--matrix-green)) border-box;
+      box-shadow: 0 0 25px var(--glow-blue);
+      padding: 3px;
+    }
+    
+    .logo-ring {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: -5px;
+      left: -5px;
+      border-radius: 50%;
+      border: 2px dashed var(--neon-blue);
+      animation: spin 20s linear infinite;
+    }
+    
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+    
+    .name {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      background: linear-gradient(to right, var(--neon-blue), var(--neon-pink), var(--matrix-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+    
+    .title {
+      color: var(--matrix-green);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    
+    .tagline {
+      color: #ddd;
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 90%;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 10px;
+      border-left: 2px solid var(--neon-blue);
+      border-right: 2px solid var(--neon-pink);
+    }
+    
+    /* স্ট্যাটাস বার */
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 8px 12px;
+      border-radius: 10px;
+      margin: 15px 0;
+      border: 1px solid rgba(0, 243, 255, 0.2);
+    }
+    
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--matrix-green);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+    
+    .cyber-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .cyber-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+      z-index: -1;
+    }
+    
+    .cyber-btn:hover::before {
+      left: 100%;
+    }
+    
+    .cyber-btn:nth-child(1) { border-color: #1877F2; background: rgba(24, 119, 242, 0.1); }
+    .cyber-btn:nth-child(2) { border-color: #1877F2; background: rgba(66, 103, 178, 0.1); }
+    .cyber-btn:nth-child(3) { border-color: #E4405F; background: rgba(228, 64, 95, 0.1); }
+    .cyber-btn:nth-child(4) { border-color: var(--tiktok-color); background: rgba(105, 201, 208, 0.1); }
+    .cyber-btn:nth-child(5) { border-color: #FF0000; background: rgba(255, 0, 0, 0.1); grid-column: span 2; }
+    .cyber-btn:nth-child(6) { border-color: #25D366; background: rgba(37, 211, 102, 0.1); }
+    .cyber-btn:nth-child(7) { border-color: #EA4335; background: rgba(234, 67, 53, 0.1); }
+    
+    .cyber-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* বিশেষ সেবা সেকশন */
+    .service-section {
+      background: rgba(0, 40, 85, 0.2);
+      border-radius: 12px;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid rgba(0, 243, 255, 0.3);
+    }
+    
+    .section-title {
+      color: var(--neon-blue);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    
+    .service-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    .service-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      border: 1px solid var(--neon-blue);
+      transition: all 0.3s;
+    }
+    
+    .service-btn:hover {
+      background: rgba(0, 243, 255, 0.15);
+      transform: translateY(-3px);
+    }
+    
+    .service-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    
+    /* Save Contact বাটন */
+    .save-contact-btn {
+      width: 100%;
+      margin: 15px 0;
+      padding: 14px;
+      background: linear-gradient(45deg, #25D366, #128C7E);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s;
+    }
+    
+    .save-contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+    
+    /* কন্টাক্ট ইনফো */
+    .contact-info {
+      border-top: 1px solid rgba(0, 243, 255, 0.3);
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    .info-icon {
+      width: 35px;
+      height: 35px;
+      background: rgba(0, 243, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      color: var(--neon-blue);
+      border: 1px solid var(--neon-blue);
+      flex-shrink: 0;
+    }
+    
+    .info-text {
+      flex: 1;
+    }
+    
+    .info-label {
+      color: var(--neon-blue);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 3px;
+    }
+    
+    .info-value {
+      color: #ddd;
+      font-size: 14px;
+    }
+    
+    /* মিউজিক প্লেয়ার */
+    .music-player {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0, 20, 40, 0.4);
+      border-radius: 12px;
+      border: 1px solid rgba(0, 255, 65, 0.4);
+      text-align: center;
+    }
+    
+    .music-title {
+      color: var(--matrix-green);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    
+    /* ভোকারো এম্বেড */
+    .vocarro-container {
+      width: 100%;
+      height: 70px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    
+    /* ফুটার */
+    .footer {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 15px;
+    }
+    
+    .footer b {
+      color: var(--neon-pink);
+    }
+    
+    /* রেসপনসিভ */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px 10px;
+      }
+      
+      .cyber-card {
+        padding: 20px 15px;
+        margin: 15px auto;
+        width: calc(100% - 20px);
+      }
+      
+      .social-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .cyber-btn:nth-child(5) {
+        grid-column: span 1;
+      }
+      
+      .service-buttons {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .name {
+        font-size: 24px;
+      }
+      
+      .title {
+        font-size: 14px;
+      }
+      
+      .logo-container {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .logo-ring {
+        width: 130px;
+        height: 130px;
+      }
+      
+      .language-switcher {
+        top: 10px;
+        right: 10px;
+      }
+      
+      .status-bar {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="digital-rain" id="matrixCanvas"></canvas>
+  <div class="cyber-bg"></div>
+  
+  <div class="cyber-card">
+    <!-- ভাষা সুইচার -->
+    <div class="language-switcher">
+      <button class="lang-btn active" id="langEn">EN</button>
+      <button class="lang-btn" id="langBn">বাংলা</button>
+    </div>
+    
+    <div class="profile-header">
+      <div class="logo-container">
+        <!-- আপনার ছবি -->
+        <img src="https://i.postimg.cc/Jz5PWJ6b/IMG-0182.jpg" alt="TANVIR AHMED DIPTO" class="profile-logo" 
+     onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIGZpbGw9Im5ো'">
+        <div class="logo-ring"></div>
+      </div>
+      
+      <h1 class="name"> TANVIR AHMED DIPTO</h1>
+      <div class="title">FOUNDER & CEO, TEAM ACS</div>
+      <p class="tagline" id="tagline">Cybersecurity Expert | Digital Problem Solver | Leading the shield against cyber threats with advanced protection solutions.</p>
+    </div>
+    
+    <!-- স্ট্যাটাস বার -->
+    <div class="status-bar">
+      <div class="status-item">
+        <div class="status-dot"></div>
+        <span class="text" data-en="24/7 Available" data-bn="২৪/৭ উপলব্ধ">24/7 Available</span>
+      </div>
+      <div class="status-item">
+        <i class="fas fa-shield-alt" style="color: var(--matrix-green);"></i>
+        <span class="text" data-en="Verified" data-bn="যাচাইকৃত">Verified</span>
+      </div>
+      <div class="status-item">
+        <i class="fas fa-bolt" style="color: var(--warning);"></i>
+        <span class="text" data-en="Fast Response" data-bn="দ্রুত সাড়া">Fast Response</span>
+      </div>
+    </div>
+    
+    <div class="social-grid">
+      <!-- আপনার ব্যক্তিগত ফেসবুক প্রোফাইল -->
+      <a href="https://www.facebook.com/share/1YhcNsNFM3/" target="_blank" class="cyber-btn">
+        <i class="fab fa-facebook-f"></i> 
+        <span class="text" data-en="Personal Profile" data-bn="ব্যক্তিগত প্রোফাইল">Personal Profile</span>
+      </a>
+      
+      
+      <!-- টেলিগ্রাম চ্যানেল -->
+      <a href="https://t.me/TANVIRAHMEDDIPTO" target="_blank" class="cyber-btn">
+        <i class="fab fa-telegram"></i> 
+        <span class="text" data-en="Telegram Channel" data-bn="টেলিগ্রাম চ্যানেল">Telegram Channel</span>
+      </a>
+      
+      <a href="/cdn-cgi/l/email-protection#6a190f130b070205010b182a0d070b030644090507" target="_blank" class="cyber-btn">
+        <i class="fas fa-envelope"></i> 
+        <span class="text" data-en="Email" data-bn="ইমেইল">Email</span>
+      </a>
+    </div>
+    
+    <!-- বিশেষ সেবা সেকশন -->
+    <div class="service-section">
+      <div class="section-title">
+        <i class="fas fa-headset"></i>
+        <span class="text" data-en="Direct Support" data-bn="সরাসরি সহায়তা">Direct Support</span>
+      </div>
+      
+      <div class="service-buttons">
+        <!-- আপনার ব্যক্তিগত হোয়াটসঅ্যাপ -->
+        <a href="https://wa.me/8801323850908" target="_blank" class="service-btn">
+          <div class="service-icon" style="color: #25D366;">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div>
+            <div style="font-weight: bold; font-size: 14px;" class="text" data-en="Personal WhatsApp" data-bn="ব্যক্তিগত হোয়াটসঅ্যাপ">Personal WhatsApp</div>
+            <div style="font-size: 12px; color: #aaa;">01837000066</div>
+          </div>
+        </a>
+        
+    
+    <!-- Save Contact বাটন -->
+    <button class="save-contact-btn" id="saveContactBtn">
+      <i class="fas fa-save"></i> 
+      <span class="text" data-en="Save My Contact" data-bn="আমার কন্টাক্ট সেভ করুন">Save My Contact</span>
+    </button>
+    
+    <div class="contact-info">
+      <!-- লোকেশন -->
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="info-text">
+          <span class="info-label text" data-en="Location" data-bn="লোকেশন">Location</span>
+          <a href="https://maps.app.goo.gl/gbKeqi4mCVUSXiy9A?g_st=ic" target="_blank" style="color: var(--matrix-green); text-decoration: none;" class="info-value">
+            <i class="fas fa-directions"></i> 
+            <span class="text" data-en="View on Google Maps" data-bn="গুগল ম্যাপে দেখুন">View on Google Maps</span>
+          </a>
+        </div>
+      </div>
+      
+      
+      <!-- সেবার সময় -->
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="info-text">
+          <span class="info-label text" data-en="Service Hours" data-bn="সেবার সময়">Service Hours</span>
+          <span class="info-value text" data-en="24/7 Emergency Support" data-bn="২৪/৭ জরুরী সহায়তা">24/7 Emergency Support</span>
+        </div>
+      </div>
+      
+      <!-- বিশেষজ্ঞতা -->
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <div class="info-text">
+          <span class="info-label text" data-en="Specialization" data-bn="বিশেষজ্ঞতা">Specialization</span>
+          <span class="info-value text" data-en="Cybersecurity & Digital Protection" data-bn="সাইবার নিরাপত্তা ও ডিজিটাল সুরক্ষা">Cybersecurity & Digital Protection</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- নাশিদ প্লেয়ার -->
+    <div class="music-player">
+      <div class="music-title">
+        <i class="fas fa-music"></i>
+        <span class="text" data-en="Motivational Nasheed" data-bn="প্রেরণাদায়ক নাশিদ">Motivational Nasheed</span>
+      </div>
+      
+      <!-- ভোকারো এম্বেড -->
+      <div class="vocarro-container">
+        <iframe 
+          src="https://voca.ro/1nDZvwJQ2PrR" 
+          frameborder="0" 
+          allow="autoplay"
+          style="width: 100%; height: 100%; border: none;"
+          id="nasheedIframe"
+        ></iframe>
+      </div>
+      
+      <div style="font-size: 12px; color: #aaa; margin-top: 8px;">
+        <i class="fas fa-volume-up" style="color: var(--neon-blue);"></i>
+        <span class="text" data-en="Nasheed is playing automatically..." data-bn="নাশিদ স্বয়ংক্রিয়ভাবে বাজছে...">Nasheed is playing automatically...</span>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p><b>ACS</b> - <span class="text" data-en="A C S | Protecting Digital Bangladesh" data-bn="এ সি এস | ডিজিটাল বাংলাদেশকে রক্ষা করা">Anonymous Cyber Shield | Protecting Digital Bangladesh</span></p>
+      <div style="margin-top: 8px; font-size: 11px; color: #666;">
+        <span class="text" data-en="© 2023 All Rights Reserved | Cybersecurity Solutions" data-bn="© ২০২৩ সর্বস্বত্ব সংরক্ষিত | সাইবার নিরাপত্তা সমাধান">© 2024 All Rights Reserved | Cybersecurity Solutions</span>
+      </div>
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // ম্যাট্রিক্স রেইন ইফেক্ট
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    
+    const letters = 'ACS123456789আমারসাইবারসুরক্ষা$+-*/=%"#&_()!?<>{}[]';
+    const fontSize = 14;
+    
+    let columns, drops;
+    
+    function initMatrix() {
+      columns = Math.floor(canvas.width / fontSize);
+      drops = [];
+      for(let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * 100;
+      }
+    }
+    
+    initMatrix();
+    
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(10, 10, 15, 0.03)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      for(let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+        
+        const greenShade = Math.floor(Math.random() * 100) + 155;
+        ctx.fillStyle = `rgb(0, ${greenShade}, 65)`;
+        ctx.font = `bold ${fontSize}px 'Rajdhani'`;
+        
+        ctx.fillText(text, x, y);
+        
+        if(y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        
+        drops[i] += 0.7;
+      }
+    }
+    
+    // অ্যানিমেশন লুপ
+    setInterval(drawMatrix, 40);
+    
+    // ভাষা পরিবর্তন
+    const langBnBtn = document.getElementById('langBn');
+    const langEnBtn = document.getElementById('langEn');
+    const allTextElements = document.querySelectorAll('.text');
+    
+    function changeLanguage(lang) {
+      allTextElements.forEach(element => {
+        const text = element.getAttribute(`data-${lang}`);
+        if (text) {
+          element.textContent = text;
+        }
+      });
+      
+      // ট্যাগলাইন আপডেট
+      const tagline = document.getElementById('tagline');
+      if (lang === 'bn') {
+        tagline.textContent = "সাইবার নিরাপত্তা বিশেষজ্ঞ | ডিজিটাল সমস্যা সমাধানকারী | উন্নত সুরক্ষা সমাধানের সাথে সাইবার হুমকির বিরুদ্ধে রক্ষাকবচ নেতৃত্ব দিচ্ছি।";
+      } else {
+        tagline.textContent = "Cybersecurity Expert | Digital Problem Solver | Leading the shield against cyber threats with advanced protection solutions.";
+      }
+      
+      // বাটন একটিভ করা
+      if (lang === 'bn') {
+        langBnBtn.classList.add('active');
+        langEnBtn.classList.remove('active');
+      } else {
+        langEnBtn.classList.add('active');
+        langBnBtn.classList.remove('active');
+      }
+      
+      // লোকাল স্টোরেজে সংরক্ষণ
+      localStorage.setItem('preferredLanguage', lang);
+    }
+    
+    // ভাষা বাটনে ইভেন্ট যোগ
+    langBnBtn.addEventListener('click', () => changeLanguage('bn'));
+    langEnBtn.addEventListener('click', () => changeLanguage('en'));
+    
+    // পূর্বে নির্বাচিত ভাষা লোড
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    changeLanguage(savedLanguage);
+    
+    // Save Contact ফাংশন
+    const saveContactBtn = document.getElementById('saveContactBtn');
+    
+    saveContactBtn.addEventListener('click', function() {
+      const phoneNumber1 = "+8801837000066";
+      const phoneNumber2 = "+8801866621442";
+      const contactName = " JAMIL MAHMUD JOY (ACS)";
+      
+      // VCF ফাইল তৈরি
+      const vcfData = `BEGIN:VCARD
+VERSION:3.0
+FN:${contactName}
+TEL;TYPE=CELL,VOICE;PREF=1:${phoneNumber1}
+TEL;TYPE=WORK,VOICE:${phoneNumber2}
+EMAIL;TYPE=WORK:acs.helpdesk.ceo@gmail.com
+ORG:Anonymous Cyber Shield (ACS)
+TITLE:Founder & CEO
+ADR;TYPE=WORK:;;P-40 Middle Badda;Dhaka;;1212;Bangladesh
+NOTE:Cybersecurity Expert | Digital Problem Solver | 24/7 Support Available
+URL:https://www.facebook.com/100069070796046/
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/100069070796046/
+END:VCARD`;
+      
+      // VCF ফাইল ডাউনলোড
+      const blob = new Blob([vcfData], { type: 'text/vcard;charset=utf-8' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Jamil_Mahmud_Joy_ACS.vcf';
+      document.body.appendChild(a);
+      a.click();
+      
+      // ক্লিনআপ
+      setTimeout(() => {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }, 100);
+      
+      // সফল মেসেজ
+      const successMsg = savedLanguage === 'bn' 
+        ? "✅ কন্টাক্ট সেভ করা হয়েছে! ফাইলটি ডাউনলোড করুন এবং আপনার ফোনে ইম্পোর্ট করুন।" 
+        : "✅ Contact saved successfully! Download the file and import it to your phone.";
+      
+      alert(successMsg);
+    });
+    
+    // পেজ লোড হলে স্ক্রল টপে রাখা
+    window.addEventListener('load', function() {
+      // স্ক্রল টপে
+      window.scrollTo(0, 0);
+    });
+    
+    // রিসাইজ ইভেন্ট
+    window.addEventListener('resize', function() {
+      resizeCanvas();
+      initMatrix();
+    });
+    
+    // ভোকারো এম্বেড রিলোড (যদি কাজ না করে)
+    const nasheedIframe = document.getElementById('nasheedIframe');
+    
+    function reloadIframe() {
+      setTimeout(() => {
+        nasheedIframe.src = nasheedIframe.src;
+      }, 1000);
+    }
+    
+    // পেজ লোড হওয়ার 2 সেকেন্ড পর চেক
+    setTimeout(reloadIframe, 2000);
+  </script>
+</body>
+</html>
